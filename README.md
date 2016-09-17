@@ -1,5 +1,5 @@
-vga-trans
-=========
+VGA Fansub
+==========
 
 Fan translation scripts of Video Game AWESOME! http://videogamesawesome.com/
 
