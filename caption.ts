@@ -7,6 +7,7 @@ class Caption {
     t1: number = -1;
     x: number = 0.5;
     y: number = 0.5;
+    anchor: string = null;
     
     constructor(elem: HTMLElement) {
 	this.elem = elem;
@@ -130,6 +131,19 @@ class CaptionScreen {
 	let frame = elem.getBoundingClientRect();
 	let dx = -frame.width/2;
 	let dy = -frame.height/2;
+	let anchor = caption.anchor;
+	if (anchor !== null) {
+	    if (0 <= anchor.indexOf('n')) {
+		dy = 0;
+	    } else if (0 <= anchor.indexOf('s')) {
+		dy = -frame.height;
+	    }
+	    if (0 <= anchor.indexOf('w')) {
+		dx = 0;
+	    } else if (0 <= anchor.indexOf('e')) {
+		dx = -frame.width;
+	    }
+	}
 	elem.style.position = 'absolute';
 	elem.style.left = (this.bounds.width*caption.x + dx)+'px';
 	elem.style.top = (this.bounds.height*caption.y + dy)+'px';
@@ -169,6 +183,7 @@ function hookVideo(video: HTMLVideoElement, interval=50) {
 	    caption.x = p[0];
 	    caption.y = p[1];
 	}
+	caption.anchor = elem.getAttribute('n');
     }
     triggers.sort((a,b) => { return a.t - b.t; });
     
