@@ -20,6 +20,12 @@
 .k { color: black; text-shadow: 3px 3px 2px gray; background: rgba(230,250,230, 0.8); text-align: left; }
 .n { color: black; text-shadow: 3px 3px 2px gray; background: rgba(250,230,100, 0.8); }
 .d { color: black; text-shadow: 3px 3px 2px gray; background: rgba(120,220,255, 0.8); }
+#displayTime {
+  position: absolute; top: 80%; left: 80%;
+  margin: 0; padding: 4px; width: 8em;
+  text-align: right; font-family: monospace; font-size: 200%;
+  color: white; background: rgba(0,0,0, 0.7); 
+}
 </style>
 <script src="caption.js"></script>
 <title>Octodad</title>
@@ -28,9 +34,11 @@
 <div style="margin: 1em;" align=center>
   <div style="position: relative; margin: 0; padding:0; width: 1280px; height:720px;">
     <video id="video" controls autoplay
-	   src="video/octodad.mp4#t=970"
+	   src="video/octodad.mp4#t=1080"
 	   width="1280">
     </video>
+    <div id="displayTime"></div>
+
     <div t="2.5 7.0" p="0.05 0.32" class="c small">カイル</div>
     <div t="2.5 7.0" p="0.18 0.33" class="c small">ディーコン</div>
     <div t="2.5 7.0" p="0.4 0.25" class="c small">ベン</div>
@@ -862,14 +870,14 @@
       みんなが見てるぞ!
     </div>
     <div t="645.0 647.0" p="0.65 0.12" n="s" class="small c">
-      もう来ないのかと思ってた。
+      もう来ないのかと思ってた
     </div>
     <div t="647.5 651.0" p="0.22 0.65" class="c f">
       人が見てる<br>
       ヘマすると疑われるぞ
     </div>
     <div t="649.0 652.0" p="0.65 0.12" n="s" class="small c">
-      きっと素敵な子供ができるわね。
+      きっと素敵な子供ができるわね
     </div>
     <div t="650.0 651.5" p="0.0 0.05" n="w" class="c k">
       ホントに?
@@ -1020,7 +1028,7 @@
       ビール回してくれよ
     </div>
     <div t="793.0 796.0" p="0.45 0.50" n="w" class="c y">
-      緑は仕事<br>
+      緑色は仕事<br>
       してないって…
     </div>
     <div t="798.0 800.0" p="0.35 0.15" n="s" class="c n">
@@ -1106,13 +1114,13 @@
       あの鳥も鳥小屋にくると思う?
     </div>
     <div t="883.5 885.5" p="0.65 0.10" n="s" class="small c">
-      あら、やっと起きたのね。
+      あら、やっと起きたのね
     </div>
     <div t="885.5 888.0" p="0.65 0.10" n="s" class="small c">
       会えてうれしいわ、おネボウさん!
     </div>
 
-    <div t="884.0 890.0" p="0.7 0.70" n="s" class="small c">
+    <div t="884.0 1020.0" p="0.7 0.70" n="s" class="small c">
       コーヒーをいれてください。
     </div>
     <div t="888.5 890.0" p="0.65 0.10" n="s" class="small c">
@@ -1149,6 +1157,9 @@
     </div>
     <div t="923.0 925.0" p="0.65 0.10" n="s" class="small c">
       あとで買ってきてね
+    </div>
+    <div t="925.0 926.0" p="0.65 0.10" n="s" class="small c">
+      *いぶかしげ*
     </div>
     <div t="926.5 929.0" p="0.65 0.10" n="s" class="small c">
       私が読んでるのを見られるわけにいかないの!
@@ -1233,6 +1244,174 @@
     <div t="977.0 979.0" p="0.23 0.63" class="c f">
       みんなこんなんじゃ<br>
       ダメだな
+    </div>
+    <div t="980.0 982.0" p="0.0 0.05" n="w" class="c k">
+      コーヒーと格闘かよ
+    </div>
+    <div t="981.5 983.0" p="0.35 0.15" n="s" class="c n">
+      流しの中か?
+    </div>
+    <div t="983.0 984.5" p="0.23 0.63" class="c f">
+      彼女が<br>
+      とったのか?
+    </div>
+    <div t="987.0 989.5" p="0.65 0.10" n="s" class="small c">
+      いま、ちょっと別の仕事をしてるのよ
+    </div>
+    <div t="989.5 992.5" p="0.65 0.10" n="s" class="small c">
+      水産業界の不正をあばいてやるの!
+    </div>
+    <div t="992.5 995.0" p="0.65 0.10" n="s" class="small c">
+      だからちょっと漁船にもぐり込む必要があって
+    </div>
+    <div t="995.5 998.0" p="0.65 0.10" n="s" class="small c">
+      *当惑と心配*
+    </div>
+    <div t="998.5 1000.5" p="0.65 0.10" n="s" class="small c">
+      そんなの、これまでもやってきたのよ!
+    </div>
+    <div t="1001.0 1002.5" p="0.65 0.10" n="s" class="small c">
+      *あきれ顔…*
+    </div>
+    <div t="991.5 993.5" p="0.44 0.48" n="w" class="c y">
+      これで陸上競技<br>
+      やりたいわね
+    </div>
+    <div t="1002.0 1003.0" p="0.35 0.15" n="s" class="c n">
+      カツラが!
+    </div>
+    <div t="1002.0 1004.0" p="0.0 0.05" n="w" class="c k">
+      コーヒー豆が!
+    </div>
+    <div t="1006.0 1008.5" p="0.0 0.05" n="w" class="c k">
+      彼女は掃除するの<br>
+      大変だろうな
+    </div>
+    <div t="1008.0 1012.5" p="0.65 0.10" n="s" class="small c">
+      昨夜あなたが書斎にこもってたとき、星空を見てたのよ
+    </div>
+    <div t="1012.5 1015.0" p="0.65 0.10" n="s" class="small c">
+      それで写真をとったら、あやしい光が映ってたの!
+    </div>
+    <div t="1015.5 1018.5" p="0.65 0.10" n="s" class="small c">
+      たぶん人工衛星かレンズフレアだろうけど…
+    </div>
+    <div t="1018.5 1021.5" p="0.65 0.10" n="s" class="small c">
+      でも…もしそうじゃなかったら?
+    </div>
+    <div t="1020.0 1022.0" p="0.0 0.05" n="w" class="c k">
+      つまり奥さんは宇宙人か
+    </div>
+    <div t="1022.5 1024.5" p="0.65 0.10" n="s" class="small c">
+      ねえ、私の最近の記事、読んだ?
+    </div>
+    <div t="1024.5 1029.0" p="0.65 0.10" n="s" class="small c">
+      市長のインタビューだけど、ズタズタにしてやったわ!
+    </div>
+    <div t="1028.5 1030.5" p="0.35 0.15" n="s" class="c n">
+      ワーオ、<br>
+      この奥さんてやつは…
+    </div>
+    <div t="1029.0 1030.5" p="0.65 0.10" n="s" class="small c">
+      言葉でだけど
+    </div>
+    <div t="1030.0 1032.0" p="0.23 0.63" class="c f">
+      次はステイシーに<br>
+      ミルクを持っていくんだ
+    </div>
+    <div t="1033.3 1035.0" p="0.44 0.48" n="w" class="c y">
+      ステイシーって<br>
+      娘のことね
+    </div>
+
+    <div t="1022.0 1060.0" p="0.7 0.70" n="s" class="small c">
+      ステイシーにミルクを届けましょう。
+    </div>
+    <div t="1031.5 1034.5" p="0.65 0.10" n="s" class="small c">
+      待っている間、ステイシーにミルクを持っていってくれる?
+    </div>
+    <div t="1035.0 1037.5" p="0.65 0.10" n="s" class="small c">
+      あたしそのうち身長100フィートになるよ!
+    </div>
+    <div t="1035.5 1039.0" p="0.23 0.63" class="c f">
+      彼女、水産業界の不正を暴く<br>
+      記事も書いたらしいよ
+    </div>
+    <div t="1041.5 1043.0" p="0.0 0.05" n="w" class="c k">
+      ビール持ってけよ!
+    </div>
+    <div t="1042.5 1045.0" p="0.23 0.63" class="c f">
+      このうち…どれかが<br>
+      ミルクだろう
+    </div>
+    <div t="1045.0 1046.5" p="0.35 0.15" n="s" class="c n">
+      あのボトルじゃないか?
+    </div>
+    <div t="1049.5 1051.5" p="0.44 0.48" n="w" class="c y">
+      チョコレートミルクに<br>
+      見えるけど…
+    </div>
+    <div t="1055.0 1056.5" p="0.35 0.15" n="s" class="c n">
+      こぼすなよ
+    </div>
+    <div t="1057.5 1059.0" p="0.0 0.05" n="w" class="c k">
+      テーブルが邪魔だな
+    </div>
+    <div t="1058.0 1062.0" p="0.65 0.10" n="s" class="small c">
+      パパ、夏になった木の上にお城つくるよね?
+    </div>
+    <div t="1060.0 1062.0" p="0.35 0.15" n="s" class="c n">
+      ほらよ、ミルクだよ
+    </div>
+
+    <div t="1065.0 1088.0" p="0.7 0.70" n="s" class="small c">
+      コーヒーを飲みましょう。
+    </div>
+    <div t="1062.5 1064.0" p="0.65 0.10" n="s" class="small c">
+      ミルクをありがとう、パパ!
+    </div>
+    <div t="1064.0 1066.0" p="0.65 0.10" n="s" class="small c">
+      そのうち鋼鉄の骨になるんだから!
+    </div>
+    <div t="1066.0 1068.5" p="0.65 0.10" n="s" class="small c">
+      コーヒーできたわよ〜
+    </div>
+    <div t="1067.0 1070.0" p="0.44 0.48" n="w" class="c y">
+      彼は精一杯いい父親を<br>
+      演じてるのよ
+    </div>
+    <div t="1071.5 1073.0" p="0.23 0.63" class="c f">
+      それに成功してるよ
+    </div>
+    <div t="1073.0 1076.0" p="0.0 0.05" n="w" class="c k">
+      ほうり投げるだけってのは<br>
+      最高だな
+    </div>
+    <div t="1078.5 1080.0" p="0.23 0.63" class="c f">
+      1番のパパだよ
+    </div>
+    <div t="1077.0 1079.0" p="0.0 0.05" n="w" class="c k">
+      その薪も投げろよ!
+    </div>
+    <div t="1080.5 1082.0" p="0.23 0.63" class="c f">
+      何を?
+    </div>
+    <div t="1081.5 1083.0" p="0.0 0.05" n="w" class="c k">
+      火の中にある薪だよ
+    </div>
+    <div t="1085.3 1087.0" p="0.23 0.63" class="c f">
+      テーブル、<br>
+      お前はいらないんだよ!
+    </div>
+
+    <div t="1090.0 1100.0" p="0.7 0.70" n="s" class="small c">
+      裏庭に出てください。
+    </div>
+    <div t="1088.0 1090.5" p="0.65 0.10" n="s" class="small c">
+      あなたのお好みにあわせて作ったのよ
+    </div>
+    <div t="1091.0 1093.0" p="0.65 0.10" n="s" class="small c">
+      海水の塩とタルタルソースで!
     </div>
 
   </div>
