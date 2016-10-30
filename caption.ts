@@ -1,5 +1,8 @@
 //  Caption
 //
+let displayTime: HTMLElement = null;
+let stopAtOnfocus = true;
+
 class Caption {
     
     elem: HTMLElement;
@@ -93,6 +96,11 @@ class CaptionScreen {
 	let i0 = 0;
 	let i1 = this.segments.length;
 	let seg: Segment = null;
+	if (displayTime !== null) {
+	    let s = Math.floor(t*10).toString();
+	    displayTime.innerHTML = s.substring(0,s.length-1)+'.'+s.substring(s.length-1);
+	    console.log(displayTime.innerHTML);
+	}
 	while (i0 < i1) {
 	    let i = Math.floor((i0+i1)/2);
 	    let seg0 = this.segments[i];
@@ -107,6 +115,18 @@ class CaptionScreen {
 		break;
 	    }
 	}
+    }
+
+    focus() {
+	if (stopAtOnfocus) {
+	    this.video.play();
+	}	
+    }
+
+    blur() {
+	if (stopAtOnfocus) {
+	    this.video.pause();
+	}	
     }
 
     setCaptions(captions: Caption[]) {
@@ -203,10 +223,13 @@ function hookVideo(video: HTMLVideoElement, interval=50) {
     screen.segments = segments;
     
     window.addEventListener('resize', () => { screen.resize(); });
+    window.addEventListener('focus', () => { screen.focus(); });
+    window.addEventListener('blur', () => { screen.blur(); });
     window.setInterval(() => { screen.update(); }, interval);
 }
 
 function run(id: string, delay=-1) {
+    displayTime = document.getElementById('displayTime');
     let video = document.getElementById(id) as HTMLVideoElement;
     hookVideo(video);
     if (0 <= delay) {
