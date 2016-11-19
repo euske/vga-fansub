@@ -16,4 +16,4 @@ Finished Subs
 
 Disclaimer
 ----------
-This project is not affiliated with, licensed or endorsed Video Games AWESOME.
+This project is not affiliated with, licensed or endorsed by Video Games AWESOME!.
