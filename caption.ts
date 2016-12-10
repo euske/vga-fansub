@@ -3,6 +3,16 @@
 let displayTime: HTMLElement = null;
 let stopAtOnfocus = true;
 
+function clamp(v0: number, v: number, v1: number) {
+    if (v < v0) {
+	return v0;
+    } else if (v < v1) {
+	return v;
+    } else {
+	return v1;
+    }
+}
+
 class Caption {
     
     elem: HTMLElement;
@@ -164,9 +174,11 @@ class CaptionScreen {
 		dx = -frame.width;
 	    }
 	}
+	let x = this.bounds.width*caption.x + dx;
+	let y = this.bounds.height*caption.y + dy;
 	elem.style.position = 'absolute';
-	elem.style.left = (this.bounds.width*caption.x + dx)+'px';
-	elem.style.top = (this.bounds.height*caption.y + dy)+'px';
+	elem.style.left = clamp(0, x, this.bounds.width-frame.width)+'px';
+	elem.style.top = clamp(0, y, this.bounds.height-frame.height)+'px';
     }
 }
 
