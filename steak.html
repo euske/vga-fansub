@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<style>
+#video { position: absolute; top: 0; left: 0; padding: 0; margin: 0; }
+.c { 
+  position: absolute; visibility: hidden; 
+  margin: 0; padding: 4px; 
+  text-align: center; font-family: sans-serif; font-size: 22pt; font-weight: bold; 
+  color: white; background: rgba(0,0,0, 0.7); 
+  text-shadow: 3px 3px 2px black;
+}
+.left { text-align: left; }
+.small { font-size: 18pt; }
+.medium { font-size: 28pt; }
+.large { font-size: 40pt; }
+.f, .k, .d, .n, .y { padding: 8px; }
+.f { background: rgba(20,40,100, 0.7); }
+.y { background: rgba(120,0,20, 0.8); text-align: left; }
+.n { background: rgba(50,50,0, 0.7); }
+#displayTime {
+  position: absolute; top: 80%; left: 80%;
+  margin: 0; padding: 4px; width: 8em;
+  text-align: right; font-family: monospace; font-size: 200%;
+  color: white; background: rgba(0,0,0, 0.7); 
+}
+</style>
+<script src="caption.js"></script>
+<title>Octodad</title>
+<body bgcolor="black" text="white" link="cyan" onload="run('video');">
+<div style="margin: 1em;" align=center>
+  <div style="position: relative; margin: 0; padding:0; width: 1280px; height:720px;">
+    <video id="video" controls autoplay
+	   src="video/steak.mp4#t=25" 
+	   width="1280">
+    </video>
+    <div id="displayTime"></div>
+
+    <div t="0.5 2.5" p="0.47 0.50" n="nw" class="c y">
+      アカネ: わあ、よだれが出そう。
+    </div>
+    <div t="2.6 6.0" p="0.47 0.50" n="nw" class="c y">
+      アカネ: ステーキの焼ける音が<br>
+      &nbsp; 聞こえてくるみたい。
+    </div>
+    <div t="6.5 8.2" p="0.20 0.65" class="c f">
+      冷めてるけどな…
+    </div>
+    <div t="9.0 11.5" p="0.47 0.50" n="nw" class="c f left">
+      ナルホド: もう冷めて<br>
+      &nbsp; 固くなっていると思うけどな。
+    </div>
+    <div t="11.0 13.0" p="0.20 0.63" class="c f">
+      右にあるのは何なんだ?
+    </div>
+    <div t="13.0 15.5" p="0.20 0.63" class="c f">
+      アスパラと<br>
+      ニンジンか?
+    </div>
+    <div t="16.5 18.5" p="0.20 0.63" class="c f">
+      誰がステーキに<br>
+      バター乗せるんだよ?
+    </div>
+    <div t="19.3 21.0" p="0.22 0.63" class="c f">
+      おい、ユウスケいるか?
+    </div>
+    <div t="21.5 24.5" p="0.20 0.63" class="c f">
+      日本じゃステーキに<br>
+      バター乗せるのか?
+    </div>
+    <div t="20.5 24.0" p="0.5 0.9" class="c">
+      (ユウスケは仕事中です)
+    </div>
+    <div t="23.5 26.0" p="0.30 0.13" n="s" class="c n">
+      ステーキにバターとな…?
+    </div>
+    <div t="26.5 28.0" p="0.42 0.50" n="w" class="c y">
+      ヘンよね
+    </div>
+    <div t="27.0 29.0" p="0.20 0.63" class="c f">
+      オレたちは<br>
+      もう十分太ってるんだ
+    </div>
+    <div t="29.0 31.5" p="0.20 0.63" class="c f">
+      そんなこと考えるのは<br>
+      やめるんだ!
+    </div>
+    <div t="31.5 33.0" p="0.20 0.63" class="c f">
+      オレたち<br>
+      もう十分デブなんだよ
+    </div>
+
+  </div>
+</div>
+</body>
