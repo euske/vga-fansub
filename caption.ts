@@ -13,6 +13,15 @@ function clamp(v0: number, v: number, v1: number) {
     }
 }
 
+function tweenIn(dt: number, duration=1.0) {
+    let v = dt / duration;
+    if (v < 1.0) {
+	return 1.0-v*v;
+    } else {
+	return 0;
+    }
+}
+
 class Caption {
     
     elem: HTMLElement;
@@ -21,10 +30,13 @@ class Caption {
     x: number = 0.5;
     y: number = 0.5;
     anchor: string = null;
+    tweenIn: string = null;
+    tweenOut: string = null;
     
     constructor(elem: HTMLElement) {
 	this.elem = elem;
 	this.elem.hidden = true;
+	this.elem.style.position = 'absolute';
 	this.elem.style.visibility = 'visible';
     }
     
@@ -32,12 +44,55 @@ class Caption {
 	return ('<Caption ('+this.t0+'-'+this.t1+')>');
     }
     
+    getx(t: number) {
+	if (this.tweenIn == 'L') {
+	    return this.x - tweenIn(t-this.t0);
+	}
+	return this.x;
+    }
+
+    gety(t: number) {
+	return this.y;
+    }
+
     show() {
 	this.elem.hidden = false;
     }
     
     hide() {
 	this.elem.hidden = true;
+    }
+
+    update(bounds: ClientRect, t: number) {
+	if (this.tweenIn !== null || this.tweenOut !== null) {
+	    this.layout(bounds, t);
+	}
+    }
+
+    layout(bounds: ClientRect, t: number) {
+	let frame = this.elem.getBoundingClientRect();
+	let dx = -frame.width/2;
+	let dy = -frame.height/2;
+	if (this.anchor !== null) {
+	    if (0 <= this.anchor.indexOf('n')) {
+		dy = 0;
+	    } else if (0 <= this.anchor.indexOf('s')) {
+		dy = -frame.height;
+	    }
+	    if (0 <= this.anchor.indexOf('w')) {
+		dx = 0;
+	    } else if (0 <= this.anchor.indexOf('e')) {
+		dx = -frame.width;
+	    }
+	}
+	let x = bounds.width*this.getx(t) + dx;
+	let y = bounds.height*this.gety(t) + dy;
+	if (this.tweenIn === null && this.tweenOut === null) {
+	    x = clamp(0, x, bounds.width-frame.width);
+	    y = clamp(0, y, bounds.height-frame.height);
+	}
+	this.elem.style.left = x+'px';
+	this.elem.style.top = y+'px';
     }
 }
 
@@ -94,10 +149,23 @@ class CaptionScreen {
 	this.resize();
     }
 
+    focus() {
+	if (stopAtOnfocus) {
+	    this.video.play();
+	}	
+    }
+
+    blur() {
+	if (stopAtOnfocus) {
+	    this.video.pause();
+	}	
+    }
+
     resize() {
 	this.bounds = this.video.getBoundingClientRect();
+	let t = this.video.currentTime;
 	for (let caption of this.present) {
-	    this.resizeCaption(caption);
+	    caption.layout(this.bounds, t);
 	}
     }
 
@@ -111,6 +179,9 @@ class CaptionScreen {
 	    displayTime.innerHTML = s.substring(0,s.length-1)+'.'+s.substring(s.length-1);
 	    console.log(displayTime.innerHTML);
 	}
+	for (let caption of this.present) {
+	    caption.update(this.bounds, t);
+	}
 	while (i0 < i1) {
 	    let i = Math.floor((i0+i1)/2);
 	    let seg0 = this.segments[i];
@@ -121,25 +192,13 @@ class CaptionScreen {
 		i0 = i+1;
 	    } else {
 		// seg0.t <= t && t < seg1.t
-		this.setCaptions(seg0.captions);
+		this.setCaptions(seg0.captions, t);
 		break;
 	    }
 	}
     }
 
-    focus() {
-	if (stopAtOnfocus) {
-	    this.video.play();
-	}	
-    }
-
-    blur() {
-	if (stopAtOnfocus) {
-	    this.video.pause();
-	}	
-    }
-
-    setCaptions(captions: Caption[]) {
+    setCaptions(captions: Caption[], t: number) {
 	for (let i = this.present.length-1; 0 <= i; i--) {
 	    let caption = this.present[i];
 	    if (captions.indexOf(caption) < 0) {
@@ -150,35 +209,10 @@ class CaptionScreen {
 	for (let caption of captions) {
 	    if (this.present.indexOf(caption) < 0) {
 		caption.show();
-		this.resizeCaption(caption);
+		caption.layout(this.bounds, t);
 		this.present.push(caption);
 	    }
 	}
-    }
-    
-    resizeCaption(caption: Caption) {
-	let elem = caption.elem;
-	let frame = elem.getBoundingClientRect();
-	let dx = -frame.width/2;
-	let dy = -frame.height/2;
-	let anchor = caption.anchor;
-	if (anchor !== null) {
-	    if (0 <= anchor.indexOf('n')) {
-		dy = 0;
-	    } else if (0 <= anchor.indexOf('s')) {
-		dy = -frame.height;
-	    }
-	    if (0 <= anchor.indexOf('w')) {
-		dx = 0;
-	    } else if (0 <= anchor.indexOf('e')) {
-		dx = -frame.width;
-	    }
-	}
-	let x = this.bounds.width*caption.x + dx;
-	let y = this.bounds.height*caption.y + dy;
-	elem.style.position = 'absolute';
-	elem.style.left = clamp(0, x, this.bounds.width-frame.width)+'px';
-	elem.style.top = clamp(0, y, this.bounds.height-frame.height)+'px';
     }
 }
 
@@ -216,6 +250,8 @@ function hookVideo(video: HTMLVideoElement, interval=50) {
 	    caption.y = p[1];
 	}
 	caption.anchor = elem.getAttribute('n');
+	caption.tweenIn = elem.getAttribute('tin');
+	caption.tweenOut = elem.getAttribute('tout');
     }
     triggers.sort((a,b) => { return a.t - b.t; });
     
