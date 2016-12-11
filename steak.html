@@ -18,7 +18,7 @@
 .large { font-size: 40pt; }
 .f, .k, .d, .n, .y { padding: 8px; }
 .f { background: rgba(20,40,100, 0.7); }
-.y { background: rgba(120,0,20, 0.8); text-align: left; }
+.y { background: rgba(100,0,80, 0.8); text-align: left; }
 .n { background: rgba(50,50,0, 0.7); }
 #displayTime {
   position: absolute; top: 80%; left: 80%;
@@ -33,10 +33,10 @@
 <div style="margin: 1em;" align=center>
   <div style="position: relative; margin: 0; padding:0; width: 1280px; height:720px;">
     <video id="video" controls autoplay
-	   src="video/steak.mp4#t=25" 
+	   src="video/steak.mp4#t=60" 
 	   width="1280">
     </video>
-    <div id="displayTime"></div>
+    <!-- div id="displayTime"></div -->
 
     <div t="0.5 2.5" p="0.47 0.50" n="nw" class="c y">
       アカネ: わあ、よだれが出そう。
@@ -53,13 +53,14 @@
       &nbsp; 固くなっていると思うけどな。
     </div>
     <div t="11.0 13.0" p="0.20 0.63" class="c f">
-      右にあるのは何なんだ?
+      それと右にあるのは<br>
+      何なんだ?
     </div>
-    <div t="13.0 15.5" p="0.20 0.63" class="c f">
+    <div t="13.0 16.0" p="0.20 0.63" class="c f">
       アスパラと<br>
       ニンジンか?
     </div>
-    <div t="16.5 18.5" p="0.20 0.63" class="c f">
+    <div t="16.5 19.0" p="0.20 0.63" class="c f">
       誰がステーキに<br>
       バター乗せるんだよ?
     </div>
@@ -73,23 +74,98 @@
     <div t="20.5 24.0" p="0.5 0.9" class="c">
       (ユウスケは仕事中です)
     </div>
-    <div t="23.5 26.0" p="0.30 0.13" n="s" class="c n">
+    <div t="23.5 26.0" p="0.30 0.12" n="s" class="c n">
       ステーキにバターとな…?
     </div>
     <div t="26.5 28.0" p="0.42 0.50" n="w" class="c y">
-      ヘンよね
+      ヘンよ
     </div>
     <div t="27.0 29.0" p="0.20 0.63" class="c f">
       オレたちは<br>
       もう十分太ってるんだ
     </div>
     <div t="29.0 31.5" p="0.20 0.63" class="c f">
-      そんなこと考えるのは<br>
-      やめるんだ!
+      そんなこと考えるの<br>
+      やめろ!
     </div>
     <div t="31.5 33.0" p="0.20 0.63" class="c f">
       オレたち<br>
       もう十分デブなんだよ
+    </div>
+    <div t="37.0 39.5" p="0.47 0.50" n="nw" class="c f left">
+      ナルホド: もう冷めて<br>
+      &nbsp; 固くなっていると思うけどな。
+    </div>
+    <div t="40.0 42.0" p="0.47 0.50" n="nw" class="c y">
+      アカネ: まだおいしいに決まってるわよ。
+    </div>
+    <div t="43.0 45.5" p="0.47 0.50" n="nw" class="c y">
+      アカネ: キョウカさんが心を込めて<br>
+      &nbsp; 作ったんだから。
+    </div>
+    <div t="46.5 49.0" p="0.47 0.50" n="nw" class="c f left">
+      ナルホド: ほかの臓器とか入ってなきゃ<br>
+      &nbsp; いいけどな…
+    </div>
+    <div t="55.8 58.0" p="0.44 0.50" n="w" class="c y">
+      ええ?<br>
+      バター乗せる!?
+    </div>
+    <div t="58.5 61.0" p="0.44 0.50" n="w" class="c y">
+      アメリカのレストランで<br>
+      見たことあるって!?
+    </div>
+    <div t="58.3 60.5" p="0.30 0.12" n="s" class="c n">
+      どうもやってるらしい…
+    </div>
+    <div t="60.7 63.5" p="0.20 0.63" class="c f">
+      アメリカ人は<br>
+      頭おかしいよな
+    </div>
+    <div t="63.0 67.5" p="0 0" class="c" n="nw" tin="L" tout="L" style="background:none;">
+      <svg xmlns="http://www.w3.org/2000/svg" 
+	   xmlns:xlink="http://www.w3.org/1999/xlink"
+	   version="1.1" width="400" height="400">
+	<marker id="arrow" viewBox="-5 -5 10 10" orient="auto">
+	  <polygon points="-5,-5 5,0 -5,5" fill="white" stroke="none" />
+	</marker>
+	<g transform="translate(1,1)">
+	  <g fill="none" stroke="white" stroke-width="4" marker-end="url(#arrow)">
+	    <line x1="170" y1="110" x2="300" y2="120" />
+	    <line x1="160" y1="130" x2="310" y2="230" />
+	    <line x1="140" y1="140" x2="190" y2="220" />
+	  </g>
+	  <text x="40" y="120" fill="white" style="font-family: sans-serif; font-size: 22pt; font-weight: bold;">カナダ人</text>
+	</g>
+      </svg>
+    </div>
+    <div t="62.5 64.0" p="0.30 0.12" n="s" class="c n">
+      南部ではやってる…
+    </div>
+    <div t="63.0 65.0" p="0.44 0.50" n="w" class="c y">
+      高級な店では<br>
+      やってる!?
+    </div>
+    <div t="66.5 69.5" p="0.20 0.64" class="c f">
+      そうするとより<br>
+      旨くなるってのは<br>
+      わかるけどよ
+    </div>
+    <div t="70.5 73.0" p="0.20 0.63" class="c f">
+      完全に余計だよ
+    </div>
+    <div t="74.7 78.5" p="0.20 0.63" class="c f">
+      でもベーコンなんか<br>
+      いるわけじゃないのに<br>
+      何にでも入れてるからな
+    </div>
+    <div t="79.0 81.5" p="0.20 0.63" class="c f">
+      そういう理屈かな
+    </div>
+    <div t="81.0 86.0" p="0.44 0.52" n="w" class="c y">
+      ステーキーにバターなんて<br>
+      これまでの人生で一度も<br>
+      見たことないわよ
     </div>
 
   </div>
