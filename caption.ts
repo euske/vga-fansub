@@ -230,7 +230,7 @@ function splitParams(s: string) {
 }
 
 // hookVideo
-function hookVideo(video: HTMLVideoElement, interval=50) {
+function hookVideo(video: HTMLVideoElement, interval=33) {
     let screen = new CaptionScreen(video);
     
     let elems = document.getElementsByClassName('c') as any;
