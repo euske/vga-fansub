@@ -22,6 +22,15 @@ function tweenIn(dt: number, duration=1.0) {
     }
 }
 
+function tweenOut(dt: number, duration=1.0) {
+    let v = dt / duration;
+    if (v < 1.0) {
+	return (v-1)*(v-1);
+    } else {
+	return 0;
+    }
+}
+
 class Caption {
     
     elem: HTMLElement;
@@ -45,10 +54,14 @@ class Caption {
     }
     
     getx(t: number) {
+	let x = this.x
 	if (this.tweenIn == 'L') {
-	    return this.x - tweenIn(t-this.t0);
+	    x -= tweenIn(t-this.t0);
 	}
-	return this.x;
+	if (this.tweenOut == 'L') {
+	    x -= tweenOut(this.t1-t);
+	}
+	return x;
     }
 
     gety(t: number) {
