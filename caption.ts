@@ -13,21 +13,50 @@ function clamp(v0: number, v: number, v1: number) {
     }
 }
 
-function tweenIn(dt: number, duration=1.0) {
-    let v = dt / duration;
-    if (v < 1.0) {
-	return 1.0-v*v;
-    } else {
-	return 0;
+class Tween {
+    duration: number = 1.0;
+    direction: number = 0.0;
+
+    constructor(v: string) {
+	if (1 <= v.length) {
+	    switch (v.substr(0,1)) {
+	    case 'L':
+		this.direction = -1;
+		break;
+	    case 'R':
+		this.direction = +1;
+		break;
+	    }
+	    if (2 <= v.length) {
+		this.duration = parseFloat(v.substr(1));
+	    }
+	}
+    }
+
+    interpolate(dt: number): number {
+	return 0.0;
     }
 }
 
-function tweenOut(dt: number, duration=1.0) {
-    let v = dt / duration;
-    if (v < 1.0) {
-	return (v-1)*(v-1);
-    } else {
-	return 0;
+class TweenIn extends Tween {
+    interpolate(dt: number) {	// 0 -> 1
+	let v = dt / this.duration;
+	if (v < 1.0) {
+	    return this.direction * (1.0-v*v);
+	} else {
+	    return 0;
+	}
+    }
+}
+
+class TweenOut extends Tween {
+    interpolate(dt: number) {	// 1 -> 0
+	let v = dt / this.duration;
+	if (v < 1.0) {
+	    return this.direction * (1.0-v*v);
+	} else {
+	    return 0;
+	}
     }
 }
 
@@ -39,8 +68,9 @@ class Caption {
     x: number = 0.5;
     y: number = 0.5;
     anchor: string = null;
-    tweenIn: string = null;
-    tweenOut: string = null;
+    tweenIn: Tween = null;
+    tweenOut: Tween = null;
+    bounded: boolean = true;
     
     constructor(elem: HTMLElement) {
 	this.elem = elem;
@@ -55,11 +85,11 @@ class Caption {
     
     getx(t: number) {
 	let x = this.x
-	if (this.tweenIn == 'L') {
-	    x -= tweenIn(t-this.t0);
+	if (this.tweenIn !== null) {
+	    x += this.tweenIn.interpolate(t-this.t0);
 	}
-	if (this.tweenOut == 'L') {
-	    x -= tweenOut(this.t1-t);
+	if (this.tweenOut !== null) {
+	    x += this.tweenOut.interpolate(this.t1-t);
 	}
 	return x;
     }
@@ -100,7 +130,7 @@ class Caption {
 	}
 	let x = bounds.width*this.getx(t) + dx;
 	let y = bounds.height*this.gety(t) + dy;
-	if (this.tweenIn === null && this.tweenOut === null) {
+	if (this.bounded) {
 	    x = clamp(0, x, bounds.width-frame.width);
 	    y = clamp(0, y, bounds.height-frame.height);
 	}
@@ -263,8 +293,14 @@ function hookVideo(video: HTMLVideoElement, interval=33) {
 	    caption.y = p[1];
 	}
 	caption.anchor = elem.getAttribute('n');
-	caption.tweenIn = elem.getAttribute('tin');
-	caption.tweenOut = elem.getAttribute('tout');
+	if (elem.hasAttribute('tin')) {
+	    caption.tweenIn = new TweenIn(elem.getAttribute('tin'));
+	    caption.bounded = false;
+	}
+	if (elem.hasAttribute('tout')) {
+	    caption.tweenOut = new TweenOut(elem.getAttribute('tout'));
+	    caption.bounded = false;
+	}
     }
     triggers.sort((a,b) => { return a.t - b.t; });
     
@@ -292,8 +328,9 @@ function hookVideo(video: HTMLVideoElement, interval=33) {
 function run(id: string, delay=-1) {
     displayTime = document.getElementById('displayTime');
     let video = document.getElementById(id) as HTMLVideoElement;
-    hookVideo(video);
     if (0 <= delay) {
+	stopAtOnfocus = false;
 	window.setTimeout(() => { video.play(); }, delay);
     }
+    hookVideo(video);
 }
