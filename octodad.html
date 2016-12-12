@@ -4,6 +4,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <style>
+body { top: 0; left: 0; padding: 0; margin: 0; }
 #video { position: absolute; top: 0; left: 0; padding: 0; margin: 0; }
 .c { 
   position: absolute; visibility: hidden; 
@@ -31,10 +32,10 @@
 </style>
 <script src="caption.js"></script>
 <title>Octodad</title>
-<body bgcolor="black" text="white" link="cyan" onload="run('video');">
-<div style="margin: 1em;" align=center>
+<body bgcolor="black" text="white" link="cyan" onload="run('video', 3000);">
+<!-- div style="margin: 1em;" align=center -->
   <div style="position: relative; margin: 0; padding:0; width: 1280px; height:720px;">
-    <video id="video" controls autoplay
+    <video id="video" 
 	   src="video/octodad.mp4#t=0" 
 	   width="1280">
     </video>
@@ -801,7 +802,7 @@
     </div>
 
     <div t="592.0 603.0" p="0.7 0.70" n="s" class="small c">
-      ボウタイをはずしてください。
+      ボウタイを取ってください。
     </div>
     <div t="596.2 598.5" p="0.22 0.65" class="c f">
       「腕を動かしているときに<br>
@@ -981,7 +982,7 @@
     <div t="710.5 712.5" p="0.65 0.10" n="s" class="small c">
       あなた、素敵よ
     </div>
-    <div t="716.5 719.0" p="0.22 0.65" class="c f">
+    <div t="716.0 719.0" p="0.22 0.65" class="c f">
       二人は日本で<br>
       出会ったのか?
     </div>
@@ -1060,7 +1061,7 @@
     </div>
     <div t="806.0 809.0" p="0.22 0.65" class="c f">
       なんでまだ誰もタダ酒<br>
-      送ってこなんだよ?
+      送ってこないんだよ?
     </div>
     <div t="808.0 810.0" p="0.40 0.15" n="s" class="c n">
       まったくだ
@@ -2142,5 +2143,6 @@
     </div>
 
   </div>
-</div>
+
+<!-- /div -->
 </body>
