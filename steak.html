@@ -4,6 +4,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <style>
+body { top: 0; left: 0; padding: 0; margin: 0; }
 #video { position: absolute; top: 0; left: 0; padding: 0; margin: 0; }
 .c { 
   position: absolute; visibility: hidden; 
@@ -28,12 +29,12 @@
 }
 </style>
 <script src="caption.js"></script>
-<title>Octodad</title>
-<body bgcolor="black" text="white" link="cyan" onload="run('video');">
-<div style="margin: 1em;" align=center>
+<title>Steak</title>
+<body bgcolor="black" text="white" link="cyan" onload="run('video', 3000);">
+<!-- div style="margin: 1em;" align=center -->
   <div style="position: relative; margin: 0; padding:0; width: 1280px; height:720px;">
-    <video id="video" controls autoplay
-	   src="video/steak.mp4#t=60" 
+    <video id="video" 
+	   src="video/steak.mp4#t=0" 
 	   width="1280">
     </video>
     <!-- div id="displayTime"></div -->
@@ -45,7 +46,7 @@
       アカネ: ステーキの焼ける音が<br>
       &nbsp; 聞こえてくるみたい。
     </div>
-    <div t="6.5 8.2" p="0.20 0.65" class="c f">
+    <div t="6.5 8.5" p="0.20 0.65" class="c f">
       冷めてるけどな…
     </div>
     <div t="9.0 11.5" p="0.47 0.50" n="nw" class="c f left">
@@ -119,10 +120,10 @@
       どうもやってるらしい…
     </div>
     <div t="60.7 63.5" p="0.20 0.63" class="c f">
-      アメリカ人は<br>
-      頭おかしいよな
+      頭おかしいよ<br>
+      アメリカ人は
     </div>
-    <div t="63.0 67.5" p="0 0" class="c" n="nw" tin="L" tout="L" style="background:none;">
+    <div t="63.0 67.5" p="0 0" class="c" n="nw" tin="L1.0" tout="L0.5" style="background:none;">
       <svg xmlns="http://www.w3.org/2000/svg" 
 	   xmlns:xlink="http://www.w3.org/1999/xlink"
 	   version="1.1" width="400" height="400">
@@ -131,9 +132,9 @@
 	</marker>
 	<g transform="translate(1,1)">
 	  <g fill="none" stroke="white" stroke-width="4" marker-end="url(#arrow)">
-	    <line x1="170" y1="110" x2="300" y2="120" />
-	    <line x1="160" y1="130" x2="310" y2="230" />
-	    <line x1="140" y1="140" x2="190" y2="220" />
+	    <path d="M170,110 Q200,110,300,120" />
+	    <path d="M160,130 Q280,200,310,230" />
+	    <path d="M140,140 C120,200,200,220,180,180 C160,160,140,200,190,230" />
 	  </g>
 	  <text x="40" y="120" fill="white" style="font-family: sans-serif; font-size: 22pt; font-weight: bold;">カナダ人</text>
 	</g>
@@ -157,7 +158,7 @@
     <div t="74.7 78.5" p="0.20 0.63" class="c f">
       でもベーコンなんか<br>
       いるわけじゃないのに<br>
-      何にでも入れてるからな
+      何にでも入れるからな
     </div>
     <div t="79.0 81.5" p="0.20 0.63" class="c f">
       そういう理屈かな
@@ -169,5 +170,6 @@
     </div>
 
   </div>
-</div>
+
+<!-- /div -->
 </body>
