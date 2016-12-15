@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<style>
+body { top: 0; left: 0; padding: 0; margin: 0; }
+#video { position: absolute; top: 0; left: 0; padding: 0; margin: 0; }
+.c { 
+  position: absolute; visibility: hidden; 
+  margin: 0; padding: 4px; 
+  text-align: center; font-family: sans-serif; font-size: 22pt; font-weight: bold; 
+  color: white; background: rgba(0,0,0, 0.7); 
+  text-shadow: 3px 3px 2px black;
+}
+.left { text-align: left; }
+.small { font-size: 18pt; }
+.medium { font-size: 28pt; }
+.large { font-size: 40pt; }
+.f, .k, .d, .n, .y { padding: 8px; }
+.f { background: rgba(20,20,120, 0.7); }
+.y { background: rgba(220,80,180, 0.8); text-align: left; }
+.k { background: rgba(20,20,180, 0.8); text-align: left; }
+.n { color: black; text-shadow: 3px 3px 2px gray; background: rgba(250,220,40, 0.9); }
+.d { color: black; text-shadow: 3px 3px 2px gray; background: rgba(120,220,255, 0.9); }
+#displayTime {
+  position: absolute; top: 80%; left: 80%;
+  margin: 0; padding: 4px; width: 8em;
+  text-align: right; font-family: monospace; font-size: 200%;
+  color: white; background: rgba(0,0,0, 0.7); 
+}
+</style>
+<script src="caption.js"></script>
+<title>Super Mario Bros U</title>
+<body bgcolor="black" text="white" link="cyan" onload="run('video');">
+<!-- div style="margin: 1em;" align=center -->
+  <div style="position: relative; margin: 0; padding:0; width: 1280px; height:720px;">
+    <video id="video" autoplay controls
+	   src="video/mariou-original.mp4#t=70" 
+	   width="1280">
+    </video>
+    <div id="displayTime"></div>
+
+    <div t="2.0 7.0" p="0.08 0.07" tin="L" class="c small">カイル</div>
+    <div t="2.0 7.0" p="0.38 0.08" tin="L" class="c small">ベン</div>
+    <div t="2.0 7.0" p="0.24 0.59" tin="L" class="c small">フレイザー</div>
+    <div t="2.0 7.0" p="0.47 0.52" tin="L" class="c small">ベッキー</div>
+    <div t="2.0 7.0" p="0.07 0.85" tin="L" class="c small">ベビー<br>ハンク</div>
+
+    <div t="4.0 7.0" p="0.24 0.73" class="c f">
+      ビデオゲーム最高!<br>
+      みんな、ようこそ!
+    </div>
+    <div t="7.0 10.0" p="0.23 0.65" class="c f">
+      今日は<br>
+      Newスーパーマリオ<br>
+      ブラザーズ U だよ
+    </div>
+    <div t="10.2 13.5" p="0.23 0.63" class="c f">
+      Wii U 発売記念は<br>
+      これが最後だ
+    </div>
+    <div t="13.5 19.0" p="0.23 0.65" class="c f">
+      4人プレイの金曜日、<br>
+      今日はこの新マリオで<br>
+      5人同時プレイだ
+    </div>
+    <div t="19.3 21.5" p="0.09 0.12" n="s" class="c k">
+      ついにオレたちのための<br>
+      ゲームがきたか!
+    </div>
+    <div t="21.3 23.5" p="0.36 0.15" n="s" class="c n">
+      楽しみだな
+    </div>
+    <div t="22.2 24.0" p="0.44 0.50" n="w" class="c y">
+      あたしも
+    </div>
+    <div t="23.0 28.5" p="0.23 0.65" class="c f">
+      Wiiのスーパーマリオは<br>
+      俺らがほぼ最初に<br>
+      プレイしたゲームだよ
+    </div>
+    <div t="28.0 29.5" p="0.09 0.12" n="s" class="c k">
+      本当か?
+    </div>
+    <div t="29.0 30.5" p="0.23 0.65" class="c f">
+      このショーでね
+    </div>
+    <div t="31.5 32.5" p="0.09 0.12" n="s" class="c k">
+      そうだっけ!
+    </div>
+    <div t="32l.5 35.0" p="0.25 0.70" class="c f">
+      このストーリー<br>
+      シーンは…
+    </div>
+    <div t="35.5 38.5" p="0.22 0.65" class="c f">
+      たしかこれは<Br>
+      予告編で見たよな
+    </div>
+    <div t="39.5 41.5" p="0.36 0.15" n="s" class="c n">
+      ああ、そうかもな
+    </div>
+    <div t="42.0 45.5" p="0.22 0.65" class="c f">
+      いつだったか<br>
+      思い出せないが…
+    </div>
+    <div t="45.5 49.0" p="0.22 0.65" class="c f">
+      たしか2番目の<br>
+      ゲームだったよ<br>
+      パンチアウトと…
+    </div>
+    <div t="49.0 51.5" p="0.22 0.65" class="c f">
+      もうひとつは<br>
+      新スーパーマリオだ
+    </div>
+    <div t="52.7 55.0" p="0.09 0.12" n="s" class="c k">
+      あのころは<Br>
+      ライブだったっけ?
+    </div>
+    <div t="55.0 57.0" p="0.22 0.65" class="c f">
+      いや、<br>
+      録画だったよ
+    </div>
+    <div t="56.0 58.0" p="0.09 0.12" n="s" class="c k">
+      昔の話じゃな
+    </div>
+    <div t="58.0 60.5" p="0.22 0.65" class="c f">
+      このゲームは<br>
+      俺たちのルーツだよ
+    </div>
+    <div t="61.0 64.5" p="0.22 0.65" class="c f">
+      クッパがまたもや…<br>
+      ワーオ、なんてこった
+    </div>
+    <div t="65.0 67.5" p="0.22 0.65" class="c f">
+      こやつの<br>
+      資金力ときたら!
+    </div>
+    <div t="68.0 71.5" p="0.22 0.65" class="c f">
+      彼女を奪うために<br>
+      研究開発すべてを<br>
+      賭けてるよな
+    </div>
+    <div t="71.5 73.0" p="0.22 0.65" class="c f">
+      よほどヤリガイが<br>
+      あるんだろうな…
+    </div>
+
+  </div>
+
+<!-- /div -->
+</body>
