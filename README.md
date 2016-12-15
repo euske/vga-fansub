@@ -12,7 +12,9 @@ How To Use
 
 Finished Subs
 -------------
- * Overcooked AWESOME! https://www.youtube.com/watch?v=pQ8HOaA5T4M
+ * "Overcooked AWESOME! ハイライトシーン" 日本語版 https://www.youtube.com/watch?v=pQ8HOaA5T4M
+ * "Octodad AWESOME! 第1話 日本語版" https://www.youtube.com/watch?v=14jJZ5vygaM
+ * "カナダの常識、ニッポンの常識" https://www.youtube.com/watch?v=TRjIgIRTR-c
 
 Disclaimer
 ----------
