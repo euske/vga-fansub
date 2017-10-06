@@ -214,9 +214,6 @@ class CaptionScreen {
 
     update() {
 	let t = this.video.currentTime;
-	let i0 = 0;
-	let i1 = this.segments.length;
-	let seg: Segment = null;
 	if (displayTime !== null) {
 	    let s = Math.floor(t*10).toString();
 	    displayTime.innerHTML = s.substring(0,s.length-1)+'.'+s.substring(s.length-1);
@@ -225,6 +222,8 @@ class CaptionScreen {
 	for (let caption of this.present) {
 	    caption.update(this.bounds, t);
 	}
+	let i0 = 0;
+	let i1 = this.segments.length;
 	while (i0 < i1) {
 	    let i = Math.floor((i0+i1)/2);
 	    let seg0 = this.segments[i];
