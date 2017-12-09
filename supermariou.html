@@ -32,11 +32,11 @@ body { top: 0; left: 0; padding: 0; margin: 0; }
 </style>
 <script src="caption.js"></script>
 <title>Super Mario Bros U</title>
-<body bgcolor="black" text="white" link="cyan" onload="run('video');">
+<body bgcolor="black" text="white" link="cyan" onload="run('video', 3000);">
 <!-- div style="margin: 1em;" align=center -->
   <div style="position: relative; margin: 0; padding:0; width: 1280px; height:720px;">
-    <video id="video" autoplay controls
-	   src="video/mariou-original.mp4#t=1090"
+    <video id="video" controls
+	   src="video/mariou-original.mp4#t=0"
 	   width="1280">
     </video>
     <div id="displayTime"></div>
@@ -45,7 +45,7 @@ body { top: 0; left: 0; padding: 0; margin: 0; }
     <div t="2.0 7.0" p="0.38 0.08" tin="L" class="c small">ベン</div>
     <div t="2.0 7.0" p="0.24 0.59" tin="L" class="c small">フレイザー</div>
     <div t="2.0 7.0" p="0.47 0.52" tin="L" class="c small">ベッキー</div>
-    <div t="2.0 7.0" p="0.07 0.85" tin="L" class="c small">ベビー<br>ハンク</div>
+    <div t="2.0 7.0" p="0.07 0.85" tin="L" class="c small">ベイビー<br>ハンク</div>
 
     <div t="4.0 7.0" p="0.24 0.73" class="c f">
       ビデオゲーム最高!<br>
@@ -143,7 +143,7 @@ body { top: 0; left: 0; padding: 0; margin: 0; }
       ワーオ なんてこった
     </div>
     <div t="63.5 65.5" p="0.36 0.10" n="c" class="c n">
-      でっかい腕だな
+      でかいアームだな
     </div>
     <div t="65.0 67.5" p="0.22 0.65" class="c f">
       こやつの<br>
@@ -158,8 +158,9 @@ body { top: 0; left: 0; padding: 0; margin: 0; }
       よほどヤリガイが<br>
       あるんだろうな…
     </div>
-    <div t="74.5 77.0" p="0.44 0.50" n="w" class="c y">
-      顔は変えらんないのね
+    <div t="74.5 77.0" p="0.43 0.48" n="w" class="c y">
+      顔は<br>
+      変えらんないのね
     </div>
     <div t="78.0 81.0" p="0.22 0.65" class="c f">
       Miiは使えると思うんだけど<br>
@@ -171,7 +172,7 @@ body { top: 0; left: 0; padding: 0; margin: 0; }
     </div>
     <div t="82.0 84.0" p="0.09 0.12" n="s" class="c k">
       ゲームをクリアしないと<br>
-      だめなんじゃないか?
+      だめだったりして
     </div>
     <div t="84.0 87.0" p="0.22 0.65" class="c f">
       そうだったらヤだな
@@ -216,8 +217,9 @@ body { top: 0; left: 0; padding: 0; margin: 0; }
       ディーコンは<br>
       まだ着替え中だ
     </div>
-    <div t="113.8 115.0" p="0.09 0.12" n="s" class="c k">
-      奴は死んだよ
+    <div t="113.8 115.0" p="0.08 0.13" n="s" class="c k">
+      奴は<br>
+      殺しといたよ
     </div>
     <div t="115.0 117.3" p="0.22 0.65" class="c f">
       続けるぞ
@@ -496,7 +498,7 @@ body { top: 0; left: 0; padding: 0; margin: 0; }
       おっと…
     </div>
     <div t="330.5 332.7" p="0.22 0.63" class="c f">
-      ベッキー<br>
+      ベッキーは<br>
       傷ついてるよ
     </div>
     <div t="333.0 336.5" p="0.43 0.50" n="w" class="c y">
@@ -1136,7 +1138,7 @@ body { top: 0; left: 0; padding: 0; margin: 0; }
     </div>
     <div t="766.9 769.0" p="0.21 0.66" n="n" class="c f">
       お前らそこらじゅうに<br>
-      いるからな
+      散らばってる
     </div>
     <div t="768.0 769.2" p="0.20 0.10" n="c" class="c d">
       メディーック!!
@@ -1255,13 +1257,17 @@ body { top: 0; left: 0; padding: 0; margin: 0; }
       ここで<br>
       割らないでくれよ
     </div>
+    <div t="871.0 873.3" p="0.10 0.07" n="c" class="c k">
+      場所がないことが<br>
+      あるんだよな
+    </div>
     <div t="877.5 879.2" p="0.34 0.10" n="c" class="c n">
       オレは<br>
       どこなんだよ!
     </div>
     <div t="886.3 888.8" p="0.23 0.62" n="n" class="c f">
-      お前ら俺がいるのが<br>
-      どんなに幸運だか…<br>
+      キサマら俺のおかげで<br>
+      どんなに楽してるか…<br>
     </div>
     <div t="890.0 891.5" p="0.41 0.49" n="w" class="c y">
       気にも<br>
@@ -1329,7 +1335,7 @@ body { top: 0; left: 0; padding: 0; margin: 0; }
       レミーの船だ
     </div>
     <div t="960.3 962.0" p="0.23 0.60" n="n" class="c f">
-      こいつらの船は<br>
+      こいつらの船<br>
       カワイイよな
     </div>
     <div t="962.5 967.2" p="0.21 0.60" n="n" class="c f">
@@ -1348,8 +1354,8 @@ body { top: 0; left: 0; padding: 0; margin: 0; }
       ヨッシーだよ
     </div>
 
-    <div t="975.5 977.5" p="0.21 0.63" n="n" class="c f">
-      乾いた砂漠のキノコ…<br>
+    <div t="975.5 978.0" p="0.21 0.63" n="n" class="c f">
+      砂漠のキノコだと…<br>
       彼女にやれよ!
     </div>
     <div t="981.5 983.0" p="0.08 0.07" n="c" class="c k">
@@ -1419,7 +1425,7 @@ body { top: 0; left: 0; padding: 0; margin: 0; }
       お前 自分でも<br>
       動けよ
     </div>
-    <div t="1081.0 1084.0" p="0.23 0.62" n="n" class="c f">
+    <div t="1081.0 1084.5" p="0.23 0.62" n="n" class="c f">
       助けてやるけどよ<br>
       ちったあ自助努力しろや
     </div>
@@ -1429,6 +1435,57 @@ body { top: 0; left: 0; padding: 0; margin: 0; }
     </div>
     <div t="1087.5 1088.5" p="0.34 0.08" n="c" class="c n">
       こいつもだ
+    </div>
+    <div t="1092.0 1093.5" p="0.43 0.50" n="w" class="c y">
+      この中<br>
+      入れる?
+    </div>
+    <div t="1093.2 1095.0" p="0.08 0.07" n="c" class="c k">
+      赤甲羅ゲット!
+    </div>
+    <div t="1099.5 1101.0" p="0.08 0.07" n="c" class="c k">
+      また土管かよ…
+    </div>
+    <div t="1102.3 1104.0" p="0.34 0.08" n="c" class="c n">
+      Powだ!
+    </div>
+    <div t="1110.5 1114.0" p="0.21 0.60" n="n" class="c f">
+      ゲームデザイナーが<br>
+      きっちり仕込んだな
+    </div>
+    <div t="1114.0 1115.0" p="0.21 0.62" n="n" class="c f">
+      よくやった
+    </div>
+    <div t="1114.0 1115.5" p="0.43 0.48" n="w" class="c y">
+      アンタら最低!
+    </div>
+    <div t="1118.0 1119.5" p="0.21 0.62" n="n" class="c f">
+      「おお Powだ!」
+    </div>
+    <div t="1122.0 1125.5" p="0.21 0.62" n="n" class="c f">
+      見ろよ このルーレット<br>
+      止められるぞ
+    </div>
+    <div t="1126.0 1127.5" p="0.43 0.48" n="w" class="c y">
+      本当?
+    </div>
+    <div t="1129.0 1131.5" p="0.43 0.49" n="w" class="c y">
+      あああ 乗れるかと<br>
+      思っちゃった
+    </div>
+    <div t="1131.3 1132.5" p="0.34 0.08" n="c" class="c n">
+      違ったんだよ
+    </div>
+    <div t="1132.5 1135.0" p="0.43 0.50" n="w" class="c y">
+      ルイージ あなたが<br>
+      唯一の生き残りよ
+    </div>
+    <div t="1133.0 1134.8" p="0.23 0.62" n="n" class="c f">
+      なんとかなるか…
+    </div>
+    <div t="1134.5 1136.2" p="0.20 0.10" n="c" class="c d">
+      この<br>
+      松ボックリめ
     </div>
 
   </div>
