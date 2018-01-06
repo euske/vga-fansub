@@ -1,7 +1,7 @@
 VGA Fansub
 ==========
 
-Fan translation scripts of Video Game AWESOME! http://videogamesawesome.com/
+Fan translation scripts of Video Game AWESOME! https://videogamesawesome.com/
 
 How To Use
 ----------
@@ -16,6 +16,7 @@ Finished Subs
  * "Octodad AWESOME! 第1話 日本語版" https://www.youtube.com/watch?v=14jJZ5vygaM
  * "カナダの常識、ニッポンの常識" https://www.youtube.com/watch?v=TRjIgIRTR-c
  * "New Super Mario Bros. U is AWESOME! ハイライトシーン 日本語版" https://www.youtube.com/watch?v=8boJDVvR92o
+ * "Grand Theft Auto V is AWESOME! ハイライトシーン 日本語版" https://www.youtube.com/watch?v=YVinsiSGOo8
 
 Disclaimer
 ----------
