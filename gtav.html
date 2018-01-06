@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<style>
+body { top: 0; left: 0; padding: 0; margin: 0; }
+#video { position: absolute; top: 0; left: 0; padding: 0; margin: 0; }
+.c {
+  position: absolute; visibility: hidden;
+  margin: 0; padding: 4px;
+  text-align: center; font-family: sans-serif; font-size: 22pt; font-weight: bold;
+  color: white; background: rgba(0,0,0, 0.8);
+  text-shadow: 3px 3px 2px black;
+}
+.left { text-align: left; }
+.small { font-size: 18pt; }
+.medium { font-size: 28pt; }
+.large { font-size: 40pt; }
+.f, .k, .d, .n, .y { padding: 8px; }
+.f { background: rgba(20,0,100, 0.7); }
+.y { background: rgba(120,0,120, 0.7); text-align: left; }
+.k { text-align: left; }
+.n { background: rgba(40,80,40, 0.95);padding: 12px; }
+.d { background: rgba(0,20,80, 0.8); }
+.banner {
+  font-size: 60pt; font-family: impact; font-weight: normal; line-height: 170%;
+  padding: 96px 64px; background: rgba(0,0,0, 0.6);
+}
+#displayTime {
+  position: absolute; top: 80%; left: 80%;
+  margin: 0; padding: 4px; width: 8em;
+  text-align: right; font-family: monospace; font-size: 200%;
+  color: white; background: rgba(0,0,0, 0.7);
+}
+</style>
+<script src="caption.js"></script>
+<title>GTA V</title>
+<body bgcolor="black" text="white" link="cyan" onload="run('video');">
+<!-- div style="margin: 1em;" align=center -->
+  <div style="position: relative; margin: 0; padding:0; width: 1280px; height:720px;">
+    <video id="video" controls autoplay
+	   src="video/gtav-original.mp4#t=0"
+	   width="1280">
+    </video>
+    <div id="displayTime"></div>
+
+    <div t="-0.3 4.0" p="0.06 0.05" tin="L" class="c k">カイル</div>
+    <div t="-0.2 4.0" p="0.20 0.10" tin="L" class="c d">ディーコン</div>
+    <div t="-0.1 4.0" p="0.35 0.12" tin="L" class="c n">ベン</div>
+    <div t="0.2 4.0" p="0.47 0.58" tin="L" class="c y">ベッキー</div>
+    <div t="0.1 4.0" p="0.22 0.65" tin="L" class="c f">フレイザー</div>
+    <div t="0.0 4.0" p="0.07 0.86" tin="L" class="c">ベイビー<br>ハンク</div>
+
+    <div t="0.5 4.4" p="0.71 0.67" n="d" class="small c">
+      そのドンくせえ髪型をなんとかすりゃ女も来るかもしれねえな
+    </div>
+    <div t="4.5 6.0" p="0.69 0.67" n="d" class="small c">
+      ニガ〜?
+    </div>
+
+    <div t="6.5 8.0" p="0.28 0.65" n="c" class="c f">
+      コイツ最高!
+    </div>
+    <div t="8.3 10.0" p="0.34 0.15" n="s" class="c n">
+      サイコーだ
+    </div>
+    <div t="10.0 12.0" p="0.25 0.65" n="c" class="c f">
+      いい味だしてるよな
+    </div>
+    <div t="12.5 15.5" p="0.43 0.50" n="w" class="c y">
+      今なら床屋に<br>
+      行けるみたいよ
+    </div>
+    <div t="14.5 16.0" p="0.22 0.65" n="c" class="c f">
+      今はいいよ
+    </div>
+    <div t="16.0 18.0" p="0.43 0.50" n="w" class="c y">
+      でも彼が…
+    </div>
+    <div t="16.5 18.0" p="0.35 0.15" n="s" class="c n">
+      奴が言ってたぞ
+    </div>
+    <div t="18.1 20.5" p="0.35 0.15" n="s" class="c n">
+      女をゲットすんのに<br>
+      重要だって
+    </div>
+    <div t="20.5 22.0" p="0.22 0.65" n="c" class="c f">
+      奴がそう言ってたのか?
+    </div>
+    <div t="22.5 24.5" p="0.22 0.68" n="c" class="c f">
+      そのオールナイトの<br>
+      床屋でか?
+    </div>
+    <div t="25.5 26.5" p="0.35 0.15" n="s" class="c n">
+      ここだ!
+    </div>
+    <div t="26.0 27.5" p="0.22 0.68" n="c" class="c f">
+      ヘアカット1丁!
+    </div>
+    <div t="28.0 31.0" p="0.75 0.67" n="d" class="small c">
+      あら いらっしゃい お座りなさいな
+    </div>
+    <div t="31.2 33.5" p="0.22 0.68" n="c" class="c f">
+      アゴ髭ちょうだい
+    </div>
+    <div t="36.7 38.7" p="0.22 0.68" n="c" class="c f">
+      それじゃ<br>
+      チョキチョキと…
+    </div>
+    <div t="39.0 40.5" p="0.44 0.50" n="w" class="c y">
+      男前ね
+    </div>
+    <div t="40.5 42.0" p="0.22 0.68" n="c" class="c f">
+      俺の車ここか
+    </div>
+    <div t="42.5 44.5" p="0.10 0.10" n="s" class="c k">
+      方向ボタンの右だ!
+    </div>
+    <div t="44.8 47.0" p="0.75 0.67" n="d" class="small c">
+      どこまで行くんだい ネエちゃん
+    </div>
+    <div t="49.5 51.3" p="0.35 0.15" n="s" class="c n">
+      尻でか!
+    </div>
+    <div t="49.5 51.5" p="0.44 0.50" n="w" class="c y">
+      彼女のパンティ<br>
+      見えるわよ
+    </div>
+    <div t="52.0 54.5" p="0.35 0.15" n="s" class="c n">
+      オーライ どこか<br>
+      暗い所を探そう
+    </div>
+    <div t="54.5 57.0" p="0.75 0.67" n="d" class="small c">
+      どこかロマンティックな場所に行きましょ
+    </div>
+    <div t="57.5 59.0" p="0.43 0.50" n="w" class="c y">
+      そういうこと
+    </div>
+    <div t="57.5 58.5" p="0.08 0.10" n="s" class="c k">
+      裏庭とか
+    </div>
+    <div t="58.5 59.5" p="0.08 0.10" n="s" class="c k">
+      線路とか…
+    </div>
+    <div t="60.0 62.0" p="0.22 0.66" n="c" class="c f">
+      ここでもいいかな?
+    </div>
+    <div t="62.3 65.0" p="0.35 0.15" n="s" class="c n">
+      暗い所なら<br>
+      どこでもいいだろ
+    </div>
+    <div t="65.0 66.7" p="0.35 0.15" n="s" class="c n">
+      ここなら<br>
+      いいんじゃないか?
+    </div>
+    <div t="66.5 69.0" p="0.73 0.65" n="d" class="small c">
+      さあスゥィーティ 何がしたいの?
+    </div>
+    <div t="68.0 70.5" p="0.35 0.15" n="s" class="c n">
+      50ドル、70ドル<br>
+      あるいは 100ドル!
+    </div>
+    <div t="70.0 72.5" p="0.22 0.68" n="c" class="c f">
+      伝統的なやつは<Br>
+      どれだ?
+    </div>
+    <div t="71.0 73.0" p="0.35 0.15" n="s" class="c n">
+      263ドルあるぞ
+    </div>
+    <div t="72.8 74.3" p="0.43 0.42" n="w" class="c y">
+      263!
+    </div>
+    <div t="78.0 80.0" p="0.08 0.08" n="s" class="c k">
+      ゲームでセックス!
+    </div>
+    <div t="78.8 80.5" p="0.35 0.15" n="s" class="c n">
+      やってるよ!
+    </div>
+    <div t="84.5 86.3" p="0.22 0.68" n="c" class="c f">
+      1分と<br>
+      もたなかったな
+    </div>
+    <div t="86.5 88.5" p="0.08 0.08" n="s" class="c k">
+      もう一回!<br>
+      もう一回!
+    </div>
+    <div t="88.5 90.0" p="0.35 0.15" n="s" class="c n">
+      待て待て…
+    </div>
+    <div t="89.5 91.7" p="0.22 0.68" n="c" class="c f">
+      50ドルだと<br>
+      どうなるんだ?
+    </div>
+    <div t="93.0 95.2" p="0.43 0.50" n="w" class="c y">
+      こっちを先にやったら?
+    </div>
+    <div t="99.5 101.5" p="0.10 0.10" n="s" class="c k">
+      売春婦だから
+    </div>
+    <div t="98.0 101.5" p="0.22 0.68" n="c" class="c f">
+      これは…<Br>
+      キレイにしてるんだよ
+    </div>
+    <div t="102.5 104.0" p="0.45 0.50" n="w" class="c y">
+      これ絶対<br>
+      ヤバいわよ!
+    </div>
+    <div t="103.5 106.0" p="0.35 0.15" n="s" class="c n">
+      これは<br>
+      生々しいね…
+    </div>
+    <div t="108.0 110.5" p="0.22 0.68" n="c" class="c f">
+      ありがとう<Br>
+      ロックスターよ
+    </div>
+    <div t="111.0 113.5" p="0.10 0.10" n="s" class="c k">
+      これ何週間もかけて<br>
+      プログラムして
+    </div>
+    <div t="113.5 115.2" p="0.10 0.10" n="s" class="c k">
+      作ってんのは<br>
+      フェラチオだよ?
+    </div>
+    <div t="115.5 118.5" p="0.20 0.15" n="s" class="c d">
+      「これは徹夜で<br>
+      仕上げないとな」
+    </div>
+    <div t="119.3 121.5" p="0.35 0.17" n="s" class="c n">
+      彼女よく<br>
+      頑張ってるな
+    </div>
+    <div t="121.4 124.0" p="0.22 0.68" n="c" class="c f">
+      どれくらいの子供が<br>
+      買ってたって?
+    </div>
+    <div t="124.0 128.0" p="0.35 0.17" n="s" class="c n">
+      母親が息子に買ってたな<br>
+      まだかなり幼いよ
+    </div>
+    <div t="128.5 131.3" p="0.10 0.10" n="s" class="c k">
+      そのママが部屋に来たら<br>
+      「ノォ〜〜」ってなるぞ
+    </div>
+    <div t="132.5 134.0" p="0.35 0.17" n="s" class="c n">
+      彼女<br>
+      口拭いたぞ
+    </div>
+    <div t="133.8 135.2" p="0.43 0.48" n="w" class="c y">
+      アンコール!
+    </div>
+    <div t="135.0 136.4" p="0.22 0.68" n="c" class="c f">
+      これで<br>
+      一文なしだよ
+    </div>
+    <div t="136.5 139.5" p="0.22 0.68" n="c" class="c f">
+      するとあの100ドルは<Br>
+      アナルだな
+    </div>
+    <div t="139.5 141.0" p="0.35 0.17" n="s" class="c n">
+      間違いない
+    </div>
+    <div t="139.5 141.2" p="0.43 0.48" n="w" class="c y">
+      そうね
+    </div>
+    <div t="141.0 144.5" p="0.22 0.68" n="c" class="c f">
+      それでその後に<br>
+      フェラチオだよ…
+    </div>
+    <div t="144.5 146.8" p="0.10 0.15" n="s" class="c k">
+      そりゃナシだろ
+    </div>
+    <div t="148.5 150.5" p="0.10 0.10" n="s" class="c k">
+      もうこれで<br>
+      三回目だぞ?
+    </div>
+    <div t="150.3 153.0" p="0.35 0.17" n="s" class="c n">
+      文句なしに<br>
+      すげえよ
+    </div>
+    <div t="153.5 155.0" p="0.35 0.17" n="s" class="c n">
+      さてと…
+    </div>
+    <div t="153.8 155.5" p="0.68 0.65" n="d" class="small c">
+      また会ってくれる?
+    </div>
+    <div t="155.5 158.5" p="0.35 0.17" n="s" class="c n">
+      ここでもし彼女を<br>
+      殴らなかったら…
+    </div>
+    <div t="156.5 158.5" p="0.24 0.68" n="c" class="c f">
+      ああ そうだな
+    </div>
+    <div t="158.6 161.1" p="0.35 0.17" n="s" class="c n">
+      オレは極度に<br>
+      失望するぞ
+    </div>
+    <div t="159.0 161.5" p="0.12 0.15" n="s" class="c k">
+      轢いてくれ<br>
+      どうか轢いてくれ
+    </div>
+    <div t="161.5 163.5" p="0.24 0.68" n="c" class="c f">
+      金を返してほしいよ
+    </div>
+    <div t="167.0 168.5" p="0.38 0.15" n="s" class="c n">
+      フルボッコだよ!
+    </div>
+    <div t="168.0 170.5" p="0.05 0.05" n="s" class="c k">
+      彼女78ドル<Br>
+      もってるぞ
+    </div>
+    <div t="172.0 174.5" p="0.24 0.68" n="c" class="c f">
+      残りの金は<br>
+      どこいった?
+    </div>
+    <div t="175.0 177.7" p="0.24 0.68" n="c" class="c f">
+      あとの150ドルは<br>
+      どうしたんだよ!
+    </div>
+    <div t="175.7 177.5" p="0.10 0.05" n="s" class="c k">
+      たぶん下着に使ったな
+    </div>
+    <div t="181.0 182.5" p="0.35 0.15" n="s" class="c n">
+      じゃあバックして…
+    </div>
+    <div t="183.5 185.5" p="0.21 0.12" n="s" class="c d">
+      典型的な<Br>
+      不意打ちだよ
+    </div>
+    <div t="183.0 187.5" p="0.24 0.68" n="c" class="c f">
+      血も涙もないな<br>
+      フランクリンは
+    </div>
+    <div t="186.2 187.7" p="0.08 0.10" n="s" class="c k">
+      全力で<br>
+      殴ってたな
+    </div>
+    <div t="189.7 191.0" p="0.10 0.15" n="s" class="c k">
+      轢け!
+    </div>
+    <div t="194.0 195.5" p="0.05 0.05" n="s" class="c k">
+      血しぶきが!
+    </div>
+    <div t="196.6 199.0" p="0.22 0.68" n="c" class="c f">
+      世の中<br>
+      どうなっちまうんだ
+    </div>
+    <div t="199.2 202.2" p="0.33 0.17" n="s" class="c n">
+      フランクリンを<br>
+      悪人にしちまったな…
+    </div>
+    <div t="199.5 203.5" p="0.24 0.68" n="c" class="c f">
+      俺たち極悪だ…<br>
+      最悪の人間だよ
+    </div>
+    <div t="202.3 204.5" p="0.08 0.05" n="s" class="c k">
+      ゲーム・オブ・<br>
+      ザ・イヤー!
+    </div>
+    <div t="203.0 207.0" p="0.33 0.17" n="s" class="c n">
+      彼は最初こんなに<br>
+      悪いヤツじゃなかったよ
+    </div>
+    <div t="208.0 210.5" p="0.12 0.07" n="s" class="c k">
+      でも奴さ オレ達と<br>
+      似たとこあるじゃん
+    </div>
+    <div t="210.5 213.5" p="0.12 0.07" n="s" class="c k">
+      安い車に乗って<br>
+      スリルも求めてないし
+    </div>
+    <div t="214.2 217.5" p="0.12 0.13" n="s" class="c k">
+      それで3回やって<br>
+      殺して 金奪って…
+    </div>
+    <div t="218.5 220.0" p="0.33 0.17" n="s" class="c n">
+      彼女は死んでない<br>
+      かもしれないよ
+    </div>
+    <div t="220.2 223.0" p="0.12 0.10" n="s" class="c k">
+      頭潰れただろ<br>
+      見なかったのか
+    </div>
+    <div t="223.3 224.8" p="0.12 0.10" n="s" class="c k">
+      彼女のとこへ<br>
+      行くぞ
+    </div>
+    <div t="223.9 225.7" p="0.24 0.68" n="c" class="c f">
+      この後つけようか
+    </div>
+    <div t="225.0 227.0" p="0.12 0.10" n="s" class="c k">
+      本当にあそこへ<br>
+      行くのかな
+    </div>
+    <div t="226.5 229.0" p="0.31 0.17" n="s" class="c n">
+      だとしたら<br>
+      驚きだな
+    </div>
+    <div t="228.5 230.0" p="0.43 0.50" n="w" class="c y">
+      とりあえず<br>
+      追いましょう
+    </div>
+    <div t="232.0 233.5" p="0.12 0.12" n="s" class="c k">
+      何やってんだ?
+    </div>
+    <div t="233.2 235.0" p="0.31 0.17" n="s" class="c n">
+      ヤツら たぶん<br>
+      わかってないぞ
+    </div>
+    <div t="237.0 239.0" p="0.31 0.17" n="s" class="c n">
+      オレ達を<br>
+      つけてるのか!?
+    </div>
+    <div t="243.0 245.3" p="0.37 0.17" n="s" class="c n">
+      あるいはオレ達を<br>
+      避けてるとか?
+    </div>
+    <div t="244.7 246.5" p="0.12 0.12" n="s" class="c k">
+      何だこれは?
+    </div>
+    <div t="245.5 247.5" p="0.35 0.17" n="s" class="c n">
+      一体<br>
+      どうしたんだよ!
+    </div>
+    <div t="247.0 249.0" p="0.24 0.68" n="c" class="c f">
+      こりゃ笑えるな
+    </div>
+    <div t="247.7 249.3" p="0.35 0.17" n="s" class="c n">
+      たぶん彼<br>
+      酔ってるぞ
+    </div>
+    <div t="249.5 251.3" p="0.35 0.17" n="s" class="c n">
+      あるいは<br>
+      盗んだのかも
+    </div>
+    <div t="251.0 252.5" p="0.12 0.12" n="s" class="c k">
+      たぶんそうだ
+    </div>
+    <div t="251.7 253.7" p="0.35 0.17" n="s" class="c n">
+      ハイになって<br>
+      盗んだんだ
+    </div>
+    <div t="253.3 255.1" p="0.12 0.10" n="s" class="c k">
+      どうなってんだよ!
+    </div>
+    <div t="254.7 257.5" p="0.24 0.69" n="c" class="c f">
+      なにかAIが<br>
+      アホってるな
+    </div>
+    <div t="265.0 266.5" p="0.12 0.10" n="s" class="c k">
+      面白すぎるぞ
+    </div>
+    <div t="268.8 271.2" p="0.12 0.10" n="s" class="c k">
+      ブレーキも何も<br>
+      かけないし…
+    </div>
+    <div t="271.7 275.2" p="0.22 0.68" n="c" class="c f">
+      彼女 殴り殺されてんだぞ<br>
+      早く行ってやれよ
+    </div>
+    <div t="275.5 279.0" p="0.22 0.70" n="c" class="c f">
+      お前 サイレン<br>
+      鳴らしてんだから<br>
+      先に行けるんだよ
+    </div>
+    <div t="284.0 286.5" p="0.35 0.16" n="s" class="c n">
+      彼 もう手袋してるよ
+    </div>
+    <div t="287.0 290.0" p="0.22 0.70" n="c" class="c f">
+      普通 着いてから<br>
+      手袋するだろ
+    </div>
+    <div t="290.5 292.0" p="0.32 0.16" n="s" class="c n">
+      初めてなんだよ
+    </div>
+    <div t="292.0 294.5" p="0.43 0.51" n="w" class="c y">
+      彼は一日中ずっと<br>
+      同じ手袋してるのよ
+    </div>
+    <div t="295.5 297.5" p="0.32 0.16" n="s" class="c n">
+      ただ救急車で<br>
+      教習してるんだよ
+    </div>
+    <div t="300.8 302.0" p="0.32 0.16" n="s" class="c n">
+      どこへ行くんだ
+    </div>
+    <div t="301.7 303.7" p="0.22 0.70" n="c" class="c f">
+      こりゃデタラメに<br>
+      走ってるだけだな
+    </div>
+    <div t="304.5 309.0" p="0.22 0.70" n="c" class="c f">
+      ぐるぐる回ってる時に<br>
+      気づくべきだったな
+    </div>
+    <div t="310.5 312.3" p="0.22 0.66" n="c" class="c f">
+      近づいてるのか?
+    </div>
+    <div t="310.2 312.2" p="0.36 0.18" n="s" class="c n">
+      床屋に向かってるぞ
+    </div>
+    <div t="312.5 314.5" p="0.22 0.66" n="c" class="c f">
+      近くへ来たな
+    </div>
+    <div t="313.5 315.0" p="0.36 0.18" n="s" class="c n">
+      床屋の近くだ
+    </div>
+    <div t="316.5 318.0" p="0.36 0.18" n="s" class="c n">
+      彼はただの<br>
+      救急隊員だろう…
+    </div>
+    <div t="318.5 320.0" p="0.38 0.16" n="s" class="c n">
+      こいつ やる気だ!
+    </div>
+    <div t="319.5 321.5" p="0.70 0.65" n="d" class="small c">
+      お前 いいかげんにしろ!
+    </div>
+    <div t="322.0 324.2" p="0.43 0.51" n="w" class="c y">
+      ただ後つけてた<br>
+      だけじゃない
+    </div>
+<!--    <div t="323.5 325.0" p="0.22 0.66" n="c" class="c f">
+      いいよ もう
+    </div>
+-->
+    <div t="328.2 330.5" p="0.20 0.12" n="s" class="c d">
+      ドアに一本!
+    </div>
+    <div t="330.5 333.3" p="0.22 0.68" n="c" class="c f">
+      お前がやらないんなら<br>
+      俺が彼女を救うよ
+    </div>
+    <div t="332.5 336.5" p="0.32 0.16" n="s" class="c n">
+      ヤツは酔ってるよ<br>
+      泥酔だ
+    </div>
+    <div t="336.0 337.5" p="0.11 0.12" n="s" class="c k">
+      サイコーだな
+    </div>
+    <div t="338.7 341.7" p="0.22 0.69" n="c" class="c f">
+      ここ彼女がいた<br>
+      近くだよな?
+    </div>
+    <div t="342.0 343.5" p="0.32 0.16" n="s" class="c n">
+      あそこか?
+    </div>
+    <div t="343.0 344.2" p="0.22 0.69" n="c" class="c f">
+      あそこだ
+    </div>
+    <div t="344.5 346.7" p="0.22 0.69" n="c" class="c f">
+      犯人は現場に戻る<br>
+      と…
+    </div>
+    <div t="347.5 349.0" p="0.45 0.50" n="w" class="c y">
+      いいのよ<br>
+      ハニー
+    </div>
+    <div t="350.0 352.0" p="0.32 0.17" n="s" class="c n">
+      彼女は<br>
+      逝っちまったな
+    </div>
+    <div t="351.5 353.5" p="0.43 0.50" n="w" class="c y">
+      歩いて帰ったのよ
+    </div>
+    <div t="353.0 356.3" p="0.22 0.70" n="c" class="c f">
+      戻ってきた時のために<br>
+      ここに救急車<br>
+      置いとくよ
+    </div>
+    <div t="357.0 359.4" p="0.43 0.50" tout="L" n="w" class="c y">
+      いい人ね
+    </div>
+
+    <div t="360.3 364.0" p="0.50 0.47" n="c" class="small c f">
+      GTAシリーズ中でも<br>
+      こりゃ一番すげえ<br>
+      イントロだよ!!
+    </div>
+    <div t="359.5 999.0" p="0.50 0.47" n="c" class="c banner">
+      Video Games AWESOME!<br>
+      videogamesawesome.com
+    </div>
+  </div>
+
+<!-- /div -->
+</body>
