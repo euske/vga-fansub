@@ -12,13 +12,14 @@ body { top: 0; left: 0; padding: 0; margin: 0; }
   text-align: center; font-family: sans-serif; font-size: 22pt; font-weight: bold;
   color: white; background: rgba(0,0,0, 0.8);
   text-shadow: 3px 3px 2px black;
+  border-radius: 16px;
 }
 .left { text-align: left; }
 .small { font-size: 18pt; }
 .medium { font-size: 28pt; }
 .large { font-size: 40pt; }
-.f { background: rgba(40,10,0, 0.85); padding: 12px; }
-.y { background: rgba(130,0,0, 0.80); padding: 10px; }
+.f { background: rgba(40,10,0, 0.85); padding: 8px; border: 4px solid rgba(20,0,0, 0.2); }
+.y { background: rgba(130,0,0, 0.80); padding: 8px; border: 4px solid rgba(60,0,0, 0.2); }
 .banner {
   font-size: 60pt; font-family: impact; font-weight: normal; line-height: 170%;
   padding: 96px 64px; background: rgba(0,0,0, 0.6);
@@ -32,15 +33,15 @@ body { top: 0; left: 0; padding: 0; margin: 0; }
 </style>
 <script src="../player/caption.js"></script>
 <title>Donkey Kong Country Tropical Freeze</title>
-<body bgcolor="black" text="white" link="cyan" onload="run('video');">
+<body bgcolor="black" text="white" link="cyan" onload="run('video', 1000);">
 <!-- div style="margin: 1em;" align=center -->
 
   <div style="position: relative; margin: 0; padding:0; width: 1280px; height:720px;">
-    <video id="video" controls autoplay
-	   src="../video/dkc-edited.mp4#t=645"
+    <video id="video"
+	   src="../video/dkc-edited.mp4#t=0"
 	   width="1280">
     </video>
-    <div id="displayTime"></div>
+    <!-- <div id="displayTime"></div> -->
 
     <div t="-0.4 4.7" p="0.43 0.85" tin="L" tout="L" class="c y">ベッキー</div>
     <div t="-0.5 4.6" p="0.24 0.85" tin="L" tout="L" class="c f">フレイザー</div>
@@ -274,7 +275,7 @@ body { top: 0; left: 0; padding: 0; margin: 0; }
       見つけちゃるわよ!
     </div>
 
-    <div t="169.0 171.8" p="0.21 0.27" n="s" class="c f">
+    <div t="168.8 171.8" p="0.21 0.27" n="s" class="c f">
       <!-- I don't know how to deal with this... I don't know how to get up there. -->
       ここはどうやって<br>
       上がるんだろうな…
@@ -785,7 +786,7 @@ body { top: 0; left: 0; padding: 0; margin: 0; }
     </div>
     <div t="547.6 549.0" p="0.20 0.29" n="s" class="c f">
       <!-- If you want. -->
-      それもいいな
+      それでもいいよ
     </div>
     <div t="552.0 553.5" p="0.20 0.29" n="s" class="c f">
       <!-- I'm an idiot. -->
@@ -883,6 +884,10 @@ body { top: 0; left: 0; padding: 0; margin: 0; }
       <!-- You're getting there. -->
       もう少しだ
     </div>
+    <div t="627.3 629.0" p="0.20 0.29" n="s" class="c f">
+      <!-- Ooh, god. -->
+      あぶね〜
+    </div>
     <div t="638.7 640.5" p="0.19 0.29" n="s" class="c f">
       <!-- Jesus... -->
       まったく…
@@ -896,7 +901,7 @@ body { top: 0; left: 0; padding: 0; margin: 0; }
       <!-- My eyes are crying. -->
       涙出たわよ<br>
     </div>
-    <div t="649.2 651.0" p="0.19 0.29" n="s" class="c f" tout="F">
+    <div t="649.2 651.0" p="0.19 0.29" n="s" class="c f" tout="F0.5">
       <!-- I can't believe how close that was. -->
       まさに<Br>
       間一髪だな
