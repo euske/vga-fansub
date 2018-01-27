@@ -13,19 +13,35 @@ function clamp(v0: number, v: number, v1: number) {
     }
 }
 
+class CaptionState {
+    x: number;
+    y: number;
+    opacity: number;
+    constructor(x: number, y: number, opacity: number=1.0) {
+        this.x = x;
+        this.y = y;
+        this.opacity = opacity;
+    }
+}
+
 class Tween {
     duration: number = 1.0;
-    direction: number = 0.0;
+    dx: number = 0.0;
+    dy: number = 0.0;
+    fading: boolean = false;
 
     constructor(v: string) {
 	if (1 <= v.length) {
 	    switch (v.substr(0,1)) {
 	    case 'L':
-		this.direction = -1;
+		this.dx = -1;
 		break;
 	    case 'R':
-		this.direction = +1;
+		this.dx = +1;
 		break;
+	    case 'F':
+                this.fading = true;
+                break;
 	    }
 	    if (2 <= v.length) {
 		this.duration = parseFloat(v.substr(1));
@@ -33,35 +49,41 @@ class Tween {
 	}
     }
 
-    interpolate(dt: number): number {
-	return 0.0;
+    interpolate(state: CaptionState, dt: number): CaptionState {
+	return state;
     }
 }
 
 class TweenIn extends Tween {
-    interpolate(dt: number) {	// 0 -> 1
+    interpolate(state: CaptionState, dt: number): CaptionState { // 0 -> 1
 	let v = dt / this.duration;
-	if (v < 1.0) {
-	    return this.direction * (1.0-v*v);
-	} else {
-	    return 0;
+        if (this.fading) {
+            state.opacity = Math.min(1.0, v);
+        } else if (v < 1.0) {
+            v = 1.0-v*v;
+            state.x += this.dx * v;
+            state.y += this.dy * v;
 	}
+        return state;
     }
 }
 
 class TweenOut extends Tween {
-    interpolate(dt: number) {	// 1 -> 0
+    interpolate(state: CaptionState, dt: number): CaptionState { // 1 -> 0
 	let v = dt / this.duration;
-	if (v < 1.0) {
-	    return this.direction * (1.0-v*v);
-	} else {
-	    return 0;
+        if (this.fading) {
+            state.opacity = Math.min(1.0, v);
+        } else if (v < 1.0) {
+            v = 1.0-v*v;
+	    state.x += this.dx * v;
+	    state.y += this.dy * v;
 	}
+        return state;
     }
 }
 
 class Caption {
-    
+
     elem: HTMLElement;
     t0: number = -1;
     t1: number = -1;
@@ -71,37 +93,33 @@ class Caption {
     tweenIn: Tween = null;
     tweenOut: Tween = null;
     bounded: boolean = true;
-    
+
     constructor(elem: HTMLElement) {
 	this.elem = elem;
 	this.elem.hidden = true;
 	this.elem.style.position = 'absolute';
 	this.elem.style.visibility = 'visible';
     }
-    
+
     toString() {
 	return ('<Caption ('+this.t0+'-'+this.t1+')>');
     }
-    
-    getx(t: number) {
-	let x = this.x
+
+    getstate(t: number) {
+        let state = new CaptionState(this.x, this.y);
 	if (this.tweenIn !== null) {
-	    x += this.tweenIn.interpolate(t-this.t0);
+            state = this.tweenIn.interpolate(state, t-this.t0);
 	}
 	if (this.tweenOut !== null) {
-	    x += this.tweenOut.interpolate(this.t1-t);
+            state = this.tweenOut.interpolate(state, this.t1-t);
 	}
-	return x;
-    }
-
-    gety(t: number) {
-	return this.y;
+	return state;
     }
 
     show() {
 	this.elem.hidden = false;
     }
-    
+
     hide() {
 	this.elem.hidden = true;
     }
@@ -128,12 +146,14 @@ class Caption {
 		dx = -frame.width;
 	    }
 	}
-	let x = bounds.width*this.getx(t) + dx;
-	let y = bounds.height*this.gety(t) + dy;
+        let state = this.getstate(t);
+	let x = bounds.width*state.x + dx;
+	let y = bounds.height*state.y + dy;
 	if (this.bounded) {
 	    x = clamp(0, x, bounds.width-frame.width);
 	    y = clamp(0, y, bounds.height-frame.height);
 	}
+        this.elem.style.opacity = state.opacity.toString();
 	this.elem.style.left = x+'px';
 	this.elem.style.top = y+'px';
     }
@@ -143,17 +163,17 @@ class Caption {
 //  Trigger
 //
 class Trigger {
-    
+
     t: number;
     show: boolean;
     caption: Caption;
-    
+
     constructor(t: number, show: boolean, caption: Caption) {
 	this.t = t;
 	this.show = show;
 	this.caption = caption;
     }
-    
+
     toString() {
 	return ('<Trigger ('+this.t+'): show='+this.show+', caption='+this.caption+'>');
     }
@@ -163,10 +183,10 @@ class Trigger {
 //  Segment
 //
 class Segment {
-    
+
     t: number = -1;
     captions: Caption[] = [];
-    
+
     constructor(t: number, captions: Caption[]) {
 	this.t = t;
 	this.captions = captions;
@@ -179,14 +199,14 @@ class Segment {
 
 
 //  CaptionScreen
-// 
+//
 class CaptionScreen {
-    
+
     video: HTMLVideoElement;
     bounds: ClientRect;
     segments: Segment[] = [];
     present: Caption[] = [];
-    
+
     constructor(video: HTMLVideoElement) {
 	this.video = video;
 	this.resize();
@@ -195,13 +215,13 @@ class CaptionScreen {
     focus() {
 	if (stopAtOnfocus) {
 	    this.video.play();
-	}	
+	}
     }
 
     blur() {
 	if (stopAtOnfocus) {
 	    this.video.pause();
-	}	
+	}
     }
 
     resize() {
@@ -274,7 +294,7 @@ function splitParams(s: string) {
 // hookVideo
 function hookVideo(video: HTMLVideoElement, interval=33) {
     let screen = new CaptionScreen(video);
-    
+
     let elems = document.getElementsByClassName('c') as any;
     let triggers = [] as Trigger[];
     for (let elem of elems) {
@@ -302,7 +322,7 @@ function hookVideo(video: HTMLVideoElement, interval=33) {
 	}
     }
     triggers.sort((a,b) => { return a.t - b.t; });
-    
+
     let segments = [] as Segment[];
     let captions = [] as Caption[];
     segments.push(new Segment(-Infinity, []));
@@ -317,7 +337,7 @@ function hookVideo(video: HTMLVideoElement, interval=33) {
     }
     segments.push(new Segment(+Infinity, []));
     screen.segments = segments;
-    
+
     window.addEventListener('resize', () => { screen.resize(); });
     window.addEventListener('focus', () => { screen.focus(); });
     window.addEventListener('blur', () => { screen.blur(); });
